@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ajax</title>
+</head>
+<body>
+</body>
+<script>
+document.querySelector("body").insertAdjacentHTML("afterBegin","<div></div>");
+var obj = document.querySelector("div");
+obj.style.cssText = "text-align:center;font-size:25px;margin-top:50px;"
+var xhr = new XMLHttpRequest();
+xhr.open("GET","http://123.207.89.151/jrtt/forecast",true);
+xhr.onload = function(){
+var data = JSON.parse(this.responseText);
+var output = " ";
+for(var key in data){
+output += `
+   <div class="user">
+	<h1>${key}</h1>
+	天气：${data[key].天气}~
+	&nbsp;&nbsp;
+	最低温：${data[key].最低温}~
+	&nbsp;&nbsp;
+	最高温：${data[key].最高温}~
+	&nbsp;&nbsp;
+	风速：${data[key].风速}~
+	&nbsp;&nbsp;
+	空气质量：${data[key].空气质量}~
+   </div>
+          `;
+  }
+obj.innerHTML = output;
+}
+xhr.send();
+</script>
+</html>

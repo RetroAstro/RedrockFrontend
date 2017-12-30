@@ -1,0 +1,354 @@
+*{margin:0;padding:0;transition:all 0.2s ease-in-out;}
+body{background:#FFFFF0; }
+.clearfix::after{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+.nav{
+	width:100%;
+	height:80px;
+	background:#fff;
+	position:fixed;
+	z-index:100;
+}
+.nav-in{
+	width:1000px;
+	height:100%;
+	margin:0 auto;
+    overflow:hidden;
+}
+.ni-l{
+	width:219px;
+	height:48px;
+	margin:20px 0;
+	float:left;
+}
+.ni-l img{
+	width:100%;
+	height:100%;
+	cursor:pointer;
+}
+.ni-r{
+	list-style:none;
+	height:80px;
+	float:right;
+}
+.ni-r li{
+	overflow:hidden;
+	position:relative;
+	line-height:80px;
+	height:80px;
+	font-size:20px;
+	float:right;
+	text-align:center;
+	cursor:pointer;
+	padding:0 6px;
+	color:#444;
+	transition:all 0.2s ease-in-out;
+}
+.ni-r li div{
+	color:#fff;
+	width:100%;
+	height:80px;
+	background:#b8e888;
+	margin:0 auto;
+	line-height:80px;
+	padding:0 6px;
+	font-size:20px;
+	margin-top:20px;
+}
+.ni-r li:hover div{
+    transform:translate(0px,-100px);
+}
+.banner{
+	width:100%;
+	margin:0 auto;
+	overflow-x:hidden;
+}
+.Bigcontainer{
+	width:100%;
+	position:relative;
+	z-index:1;
+}
+.lantian{
+	height:650px;
+	background:url(img/lantian.png)
+	no-repeat center center;
+}
+.shan{
+	height:986px;
+	background:url(img/shan.png)
+	no-repeat center center;
+	margin-top:-450px;
+}
+.lu{
+	height:994px;
+	background:url(img/lu.png)
+	no-repeat center center;
+	margin-top:-860px;
+}
+.yishuzi{
+	position:relative;
+	width:640px;
+	height:2000px;
+	background:url(img/yishuzi.png)
+	no-repeat center center;
+	background-size:contain;
+	margin-top:-2040px;
+	margin-left:400px;
+	z-index:5;
+}
+.car{
+	width:550px;
+	height:2000px;
+	background:url(img/car.png)
+	no-repeat center center;
+	background-size:contain;
+	margin-top:-1770px;
+	margin-left:450px;
+}
+.flyman{
+	position:absolute;
+	top:100px;
+	left:240px;
+	width:130px;
+	height:250px;
+	background:url(img/flyman.png)
+	no-repeat center center;
+	background-size:contain;
+}
+.left{
+	position:fixed;
+	top:360px;
+	left:0px;
+	width:130px;
+	height:250px;
+	background:url(img/zscy.png)
+	no-repeat center center;
+	background-size:contain;
+	z-index:222;
+}
+.right{
+	position:fixed;
+	top:360px;
+	right:30px;
+	width:130px;
+	height:250px;
+	background:url(img/cyxbs.png)
+	no-repeat center center;
+	background-size:contain;
+	z-index:222;
+}
+.sun{
+    position:absolute;
+    top:80px;
+    right:40px;
+	width:395px;
+	height:140px;
+	background:url(img/sun.png)
+	no-repeat center center;
+	background-size:contain;
+}
+.passerby{
+    position:absolute;
+    top:480px;
+    right:450px;
+	width:160px;
+	height:320px;
+	background:url(img/passerby.png)
+	no-repeat center center;
+	background-size:contain;
+}
+.top{
+	position:fixed;
+	top:550px;
+	right:40px;
+	width:130px;
+	height:250px;
+	background:url(img/top.png)
+	no-repeat center center;
+	background-size:contain;
+	z-index:222;
+}
+.center{
+	width:1100px;
+	margin:0 auto;
+	margin-top:-900px;
+	text-align:center;
+}
+.map{
+	width:261px;
+	height:136px;
+	background:url(img/map.png)
+	no-repeat center center;
+	margin:30px auto;
+}
+.border{
+	width:1085px;
+	height:767px;
+	background:url(img/three.png)
+	no-repeat center center;
+	margin-top:-160px;
+}
+.tinymap{
+	width:850px;
+	height:457px;
+	border-radius:10px;
+    margin-top:175px;
+    margin-left:15px;
+}
+.army{
+	width:261px;
+	height:136px;
+	background:url(img/armyflag.png)
+	no-repeat center center;
+	margin:60px auto;
+	position:relative;
+	right:15px;
+}
+.waikuang{
+	width:1085px;
+	height:767px;
+	background:url(img/three.png)
+	no-repeat center center;
+	margin-top:-180px;
+	position:relative;
+	right:10px;
+}
+.leaf{
+	position:absolute;
+	bottom:-40px;
+	left:-100px;
+}
+.button{
+	position:absolute;
+	bottom:160px;
+	right:120px;
+}
+.logo{
+	margin:0 80px;
+}
+.ps2{
+	position:relative;
+	top:8px;
+}
+.fourboxes{
+	position:relative;
+	width:1010px;
+	height:1134px;
+	background:url(img/waikuang.png)
+	no-repeat center center;
+}
+.btn-1{
+	position:absolute;
+	top:360px;
+	left:150px;
+}
+.btn-2{
+	position:absolute;
+	top:360px;
+	right:150px;
+}
+.btn-3{
+	position:absolute;
+	top:1000px;
+	left:150px;
+}
+.btn-4{
+	position:absolute;
+	top:1000px;
+	right:150px;
+}
+.mark-1{
+	position:absolute;
+	top:100px;
+	left:170px;
+}
+.mark-2{
+	position:absolute;
+	top:110px;
+	right:155px;
+}
+.mark-3{
+	position:absolute;
+	top:750px;
+	left:170px;
+}
+.mark-4{
+	position:absolute;
+	top:760px;
+	right:155px;
+}
+.yinxin{
+	width:261px;
+	height:136px;
+	background:url(img/yinxin.png)
+	no-repeat center center;
+	margin:150px auto;
+	position:relative;
+	right:50px;
+}
+.sec-box{
+	position:relative;
+	height:1120px;
+	margin-left:-180px;
+	margin-top:-400px;
+	background:url(img/sixteen.png)
+	no-repeat center center;
+	background-size:contain;
+}
+.cerv-1{
+	position:absolute;
+	top:450px;
+	right:180px;
+}
+.cerv-2{
+	position:absolute;
+	top:790px;
+	right:190px;
+}
+.face-1{
+	position:absolute;
+	top:350px;
+	left:280px;
+}
+.face-2{
+	position:absolute;
+	top:700px;
+	left:250px;
+}
+.leaf2{
+	position:absolute;
+	bottom:90px;
+	left:40px;
+}
+.rightstone{
+	position:absolute;
+	top:-100px;
+	right:-250px;
+}
+.leftstone{
+	position:absolute;
+	top:480px;
+	left:-250px;
+}
+.footer{
+	width:100%;
+	background:#daeeab;
+}
+.ft-in{
+	width:1000px;
+	margin:0 auto;
+	text-align:center;
+	line-height:35px;
+	font-size:16px;
+	color:#88a938;
+	padding:50px;
+}
+.ft-in a{
+	color:#88a938;
+	text-decoration:none;
+}

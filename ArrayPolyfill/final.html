@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FINAL</title>
+</head>
+<body>
+<script type="text/javascript">
+Array.prototype.cMoap = function(callback) {
+    let Target = Object(this);
+    NewArray = [];
+    var Former,Present;
+	for(var i = 0;i< Target.length;i++){
+		if (i in Target) {
+			Former = Target[i];
+		    Present = callback.call(this,Former);
+			NewArray[i] = Present;
+		}
+	}
+    return NewArray;
+  }
+Array.prototype.cRedouce = function(callback) {
+	let Target = Object(this);
+	var value;
+	var k = 0;
+	while (k< Target.length && !(k in Target)) { k++ };
+    value = Target[k++];
+    while(k < Target.length){
+    	if (k in Target) {
+    		value = callback.call(this,value,Target[k]);
+    	}
+    	k++
+    }
+    return value;
+}
+Array.prototype.cfiLtoer = function(callback){
+    let Target = Object(this);
+    var filterRes = [];
+    for(var j = 0;j < Target.length; j++){
+    	if (j in Target) {
+    		if (callback.call(this,Target[j],j,Target)) {
+    			filterRes.push(Target[j]);
+    		}
+    	}
+    }
+    return filterRes;
+}
+Array.prototype.csooMe = function(callback){
+    let Target = Object(this);
+    for(var t = 0;t < Target.length; t++){
+    	if (t in Target && callback.call(this,Target[t],t,Target)) {	
+    	    return true;
+        }
+    }
+    return false;
+}
+Array.prototype.cforoEach = function(callback){
+	let Target = Object(this);
+	for(var s = 0;s < Target.length; s++){
+		if (s in Target) {
+			var Eval = Target[s];
+		    callback.call(this,Eval);
+		}
+	}
+}
+//test...    
+let numbers = [1,5,20,15];
+let Result1 = numbers.cMoap( x => x * 2 );
+let Result2 = numbers.cRedouce( (pre,cur) => pre + cur );
+let Result3 = numbers.cfiLtoer( y => y >= 5 );
+let Result4 = numbers.csooMe( y => y >= 25 );
+console.log(Result1);
+console.log(Result2);
+console.log(Result3);
+console.log(Result4);
+let arr = [1,2,3,4];
+calc = arr.cforoEach( (eve) => {
+	console.log(eve);
+	if (eve === 2) {
+	arr.shift();
+  }
+});
+</script>	
+</body>
+</html>

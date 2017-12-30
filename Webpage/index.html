@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enigmatico</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body background="img/layout.png">
+<div class="super-container">
+	<div class="banner clearfix">
+		<span>Enigmatico</span>
+		    <div class="coin">
+			   <div class="icon" style="background:#708090;">Sign in</div><div class="icon" style="background:#8f3232;width:80px;">Sign up</div>
+		    </div>
+		  <div class="banner-right">
+		  	 <span class="txt">Follow us:</span>
+		  	    <a href="#"><img src="img/sina.png" class="logo"></a>
+		  	       <a href="#"><img src="img/twitter.png" class="logo"></a>
+		  	         <a href="#"><img src="img/facebook.png" class="logo"></a>
+		  	      <a href="#"><img src="img/wifi.png" class="logo"></a>
+		      </div>
+		  </div>
+<div class="main-container">
+	   <div class="nav"><img src="img/nav.png">
+		    <div class="nav-container">
+				 <a href="#" class="nav-btn">Home page</a>
+		            <a href="#" class="nav-btn" id="slide">About us</a>
+	                   <div class="show">
+		                   <ul class="Light">
+					           <li>Consectetur</li>
+					        	    <li>Vehicula</li>
+					        	        <li>Sit Dapibus Ligula</li>
+					        	    <li>Consectetur</li>
+					        	<li>Vehicula Sit</li>
+					        <li>Dapibus Ligula</li>
+					    <li>Consectetur Vehicula</li>	
+				    </ul>
+	           </div>
+            <a href="#" class="nav-btn">Photo gallery</a>
+          <a href="#" class="nav-btn">Blog</a>
+        <a href="#" class="nav-btn">E-shop</a>
+      <a href="#" class="nav-btn">Contact us</a>
+    </div>
+      </div>
+		 <div class="Carousel">
+			 <div class="btn-left"><p class="left"><</p></div>
+			    <div class="btn-right"><p class="right">></p></div>
+			        <div class="Carsel-container">
+			           <div class="inner-wrap"><img class="view" src="img/1.png"></div>
+		                 <div class="inner-wrap"><img class="view" src="img/2.jpg"></div>
+		                   <div class="inner-wrap"><img class="view" src="img/3.jpg"></div>
+	                         <div class="inner-wrap"><img class="view" src="img/4.jpg"></div>
+		                       <div class="inner-wrap"><img class="view" src="img/5.jpg"></div>
+			                 <div class="inner-wrap"><img class="view" src="img/6.jpg"></div>
+				           <div class="inner-wrap"><img class="view" src="img/7.jpg"></div>
+			            <div class="inner-wrap"><img class="view" src="img/1.png"></div>
+		             </div>
+	              </div>
+               <div class="curtain">
+            <img src="img/shape.png">
+         </div>
+      <div class="cur-inside"><p id="part">Photography donec ullamcorper</p><p id="partwo">Nullam quis risus eget urna mollis ormare vel eu leo.Curabitur blandit
+tempus porttitor.Cum sociis natoque penatibus et magnis dis parturient</p>
+</div>
+  </div>
+	 <div class="gap" style="width:960px;height:15px;"></div>
+	    <div class="footer">
+		   <div class="story"><p>We are photoshoot agency Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+ Dorec ullamcorper nulla non metus auctor fringilla.Praesent commodo cursus magna,vel scelerisque nisl</p>
+               </div>
+		          <div class="footer-right">
+			 <div class="carrot">&nbsp;&nbsp;More information &nbsp;&nbsp;&nbsp;&nbsp;></div>
+		 </div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+//二级菜单滑入滑出
+$('#slide').mouseenter(function(){
+	$('#slide').next('.show').slideDown(500);
+});
+$('.show').mouseleave(function(){
+	$('#slide').next('.show').slideUp(500);
+});
+//轮播图实现
+var flag = true;
+var _index = 0;
+var imgWidth = $('.view').width();
+var innerGroup = $('.inner-wrap');
+var rightArrow = $('.btn-right');
+var leftArrow = $('.btn-left');
+var timer = null;
+
+$(".Carousel").hover(function() {
+    //鼠标移入
+    clearInterval(timer);
+    flag = false;
+}, function() {
+    flag = true;
+    timer = setInterval(go, 3000);
+});
+
+function autoGo(bol) {
+    //自动行走
+    if (bol) {
+        timer = setInterval(go, 3000);
+    }
+}
+
+autoGo(flag);
+
+function go() {
+    //计时器的函数
+    _index++;
+    selectPic(_index);
+}
+
+rightArrow.on("click", function() {
+    //右箭头
+    flag = false;
+    clearInterval(timer);
+    _index++;
+    selectPic(_index);
+})
+leftArrow.on("click", function() {
+    //左箭头
+    flag = false;
+    clearInterval(timer);
+    if (_index == 0) {
+        _index = innerGroup.length - 1;
+        $(".Carsel-container").css("left", -(innerGroup.length - 1) * imgWidth);
+    }
+    _index--;
+    selectPic(_index);
+});
+
+function selectPic(num) {
+    $(".Carsel-container").animate({
+        left: -num * imgWidth,
+    }, 2000, function() {
+        //检查是否到最后一张
+        if (_index == innerGroup.length - 1) {
+            _index %= 7;
+            $(".Carsel-container").css("left", "0px");
+        }
+    })
+}
+</script>
+</html>

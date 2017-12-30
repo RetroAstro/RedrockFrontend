@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drag</title>
+</head>
+<body>
+</body>
+<script>
+document.querySelector("body").insertAdjacentHTML("afterBegin","<div>DRAG HERE</div>");
+var obj = document.querySelector("div");
+obj.style.cssText = "width:150px;height:150px;background:#ed4040;border-radius:50%;position:relative;cursor:pointer;color:#fff;text-align:center;line-height:150px;font-size:25px;"
+obj.addEventListener("mousedown",start)
+ function start(event){
+ 	deltaX=event.clientX-obj.offsetLeft;
+ 	deltaY=event.clientY-obj.offsetTop;
+ 	document.addEventListener("mousemove",move)
+ 	document.addEventListener("mouseup",stop)
+ 	return false;
+ }
+function move(event){
+screenHeighgt = document.documentElement.clientHeight;
+diffHeight = screenHeighgt - 185;
+screenWidth = document.documentElement.clientWidth;
+diffWidth = screenWidth - 175;
+	let Vleft = event.clientX-deltaX;
+	var Vtop = event.clientY-deltaY;
+	obj.style.left = Vleft + 'px';
+	obj.style.top = Vtop + 'px';
+    if (Vleft<0){
+    obj.style.left = 0;
+    }else if (Vleft>diffWidth) {
+    obj.style.left = diffWidth + 'px';
+    }
+    if (Vtop<0){
+    obj.style.top = 0;
+    }else if (Vtop>diffHeight) {
+    obj.style.top = diffHeight + 'px';
+    }
+	return false;
+}
+function stop(){
+ 	document.removeEventListener("mousemove",move)
+ 	document.removeEventListener("mouseup",stop)
+}
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>IFE JavaScript Task 01</title>
+<style type="text/css">
+div{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;
+  height:230px;
+  font-size:20px;
+  font-weight:bold;
+  text-align:center;
+  color:#F4A460;
+  overflow:hidden;
+}
+li{
+  list-style:none;
+  text-align:left;
+  position:relative;
+  left:178px;
+}
+#btn{
+  width:200px;
+  height:50px;
+  background:#ADD8E6;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  cursor:pointer;
+  font-size:20px;
+  font-weight:bold;
+  color:#fff;
+}
+h3{
+  position:relative;
+  left:15px;
+}
+</style>
+</head>
+<body>
+<div>
+<h3>点击获取空气质量指数大于60部分污染城市列表</h3>
+<button id="btn" type="none">Click Me</button>
+<ul id="aqi-list">
+</ul>
+</div>
+<script type="text/javascript">
+  var aqiData = [
+  ["西安", 100],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["北京", 90],
+  ["成都", 90]
+];
+var number =["一","二","三"];
+var btn = document.getElementById("btn");
+var j = 0;
+btn.onclick = function (){
+
+//方法一
+var list ="";
+for (var i = 0; i < aqiData.length; i++) {
+if (aqiData[i][1]>=60) {
+   list += "<li>" + "第" +number[j]+ "名" + "&nbsp;&nbsp;&nbsp;" +aqiData[i][0]+ ":" + "&nbsp;" +aqiData[i][1]+ "</li>";
+   var aqi = document.getElementById("aqi-list");
+   if (j<=2) {
+    aqi.innerHTML = list;
+    j++;
+   }
+  }
+}
+
+//方法二
+ /*for (var i = 0; i < aqiData.length; i++) {
+   if (aqiData[i][1]>=60) {
+      var aqi = document.getElementById("aqi-list");
+      var elementLi = document.createElement("li"); 
+      aqi.appendChild(elementLi);
+      elementLi.innerHTML ="第" +number[j]+ "名" + "&nbsp;&nbsp;&nbsp;" +aqiData[i][0]+ ":" +aqiData[i][1];
+      j++;
+    }
+   }*/
+
+};
+</script>
+</body>
+</html>

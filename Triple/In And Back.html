@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sixth</title>
+</head>
+<body>
+</body>
+<script>
+document.querySelector("body").insertAdjacentHTML("afterBegin","<div></div>"); 
+var DIV = document.querySelector("div");
+DIV.style.cssText = "width:130px;height:130px;border-radius:50%;background:#ed4040;transition:all 2s ease;position:absolute;left:300px;top:300px;cursor:pointer;box-shadow:0 0 15px;";
+DIV.addEventListener("click",function (event){
+	DIV.style.cssText += "margin-left:800px;";
+	DIV.style.background = getRandomColor();
+	setTimeout(function(){
+		DIV.classList.add("mark")
+	},2000)
+	if (DIV.getAttribute("class") == "mark") {
+    DIV.style.cssText += "margin-left:0px;";
+    DIV.style.background = getRandomColor(); 
+    setTimeout(function(){
+		DIV.classList.add("remark")
+	},2000)
+    }
+    if (DIV.getAttribute("class") == "mark remark") {
+    	DIV.style.cssText += "margin-left:800px;";
+    	DIV.style.background = getRandomColor();
+    	setTimeout(function(){
+    		DIV.classList.remove("remark")
+    	}) 
+    }
+},false)
+var getRandomColor = function(){
+  return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+}
+</script>
+</html>
